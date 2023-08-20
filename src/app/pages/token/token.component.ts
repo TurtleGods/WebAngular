@@ -7,8 +7,8 @@ import { TokenService } from './token.service';
   styleUrls: ['./token.component.css']
 })
 export class TokenComponent {
-  token:string | undefined;
-  constructor(private tokenService:TokenService){}
+  token: string | undefined;
+  constructor(private tokenService: TokenService) { }
   generateToken(): void {
     this.tokenService.generateToken().subscribe(
       (response: any) => {
@@ -18,5 +18,5 @@ export class TokenComponent {
         console.error('Error generating token:', error);
       }
     );
-}
+  }
 }
