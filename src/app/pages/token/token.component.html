@@ -1,1 +1,9 @@
-<p>token works!</p>
+<p>Works</p>
+<div>
+    <button (click)="generateToken()">Generate Token</button>
+    <div *ngIf="token" class="token-display">
+      <h2>Generated Token:</h2>
+      <pre>{{ token }}</pre>
+    </div>
+  </div>
+  

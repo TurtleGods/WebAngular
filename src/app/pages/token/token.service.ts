@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  generateToken(){
+    return this.http.post('https://localhost:7271/api/Token',{});
+  }
 }
