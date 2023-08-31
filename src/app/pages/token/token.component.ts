@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TokenService } from './token.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-token',
@@ -8,7 +9,11 @@ import { TokenService } from './token.service';
 })
 export class TokenComponent {
   token: string | undefined;
-  constructor(private tokenService: TokenService) { }
+  form=this.fb.group({
+    UserName:"",
+    Password:"",
+  });
+  constructor(private tokenService: TokenService,private fb:FormBuilder) { }
   generateToken(): void {
     this.tokenService.generateToken().subscribe(
       (response: any) => {
@@ -18,5 +23,11 @@ export class TokenComponent {
         console.error('Error generating token:', error);
       }
     );
+  }
+
+  login():void{
+    this.tokenService.login(this.form.value).subscribe(x=>{
+      console.log(x);
+    })
   }
 }

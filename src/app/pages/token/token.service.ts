@@ -10,4 +10,7 @@ export class TokenService {
   generateToken(){
     return this.http.post('https://localhost:7271/api/Token',{});
   }
+  login(userInfo:any){
+    return this.http.post('https://localhost:7271/api/Login',userInfo);
+  }
 }

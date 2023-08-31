@@ -1,4 +1,10 @@
 <p>Works</p>
+<form [formGroup]="form" (ngSubmit)="login()">
+
+  <input type="text" formControlName="UserName"/>
+  <input type="password" formControlName="Password"/>
+  <button type="submit">Login</button>
+</form>
 <div>
   <button (click)="generateToken()">Generate Token</button>
   <div *ngIf="token" class="token-display">
