@@ -7,12 +7,14 @@ import { TokenComponent } from './pages/token/token.component';
 import { TestComponent } from './test/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotificationComponent } from './pages/notification/notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TokenComponent,
-    TestComponent
+    TestComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
