@@ -13,4 +13,7 @@ export class TokenService {
   login(userInfo:any){
     return this.http.post('https://localhost:7271/api/Login',userInfo);
   }
+  SQLInsert(){
+    return this.http.post('https://localhost:7271/api/SQLInsert',{});
+  }
 }

@@ -30,4 +30,7 @@ export class TokenComponent {
       console.log(x);
     })
   }
+  btnSQLInsert(){
+this.tokenService.SQLInsert().subscribe();
+  }
 }
