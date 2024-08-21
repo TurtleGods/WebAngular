@@ -1,0 +1,54 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .footer-item i {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  /* Example icon styles (replace these with actual icon fonts or images) */
+  .home-icon::before {
+    content: '\1F3E0'; /* Unicode for home icon */
+  }
+  
+  .favorite-icon::before {
+    content: '\2764'; /* Unicode for heart icon */
+  }
+  
+  .schedule-icon::before {
+    content: '\1F4C5'; /* Unicode for calendar icon */
+  }
+  
+  .record-icon::before {
+    content: '\1F4DD'; /* Unicode for memo icon */
+  }
+  
+  /* Responsive footer for smaller screens */
+  @media (max-width: 600px) {
+    .footer {
+      padding: 15px 0;
+    }
+  
+    .footer-item {
+      font-size: 12px;
+    }
+  
+    .footer-item i {
+      font-size: 20px;
+    }
+  }
+  

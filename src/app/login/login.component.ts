@@ -20,7 +20,7 @@ export class LoginComponent {
     // Implement your login logic here
     // For example, you could call an authentication service, or use a static check for demonstration
 
-    if (this.user.email === 'test@example.com' && this.user.password === 'password123') {
+    if (this.user.email === '1@1' && this.user.password === '123') {
       // If login is successful, navigate to the main page or dashboard
       this.router.navigate(['/main']);
     } else {
