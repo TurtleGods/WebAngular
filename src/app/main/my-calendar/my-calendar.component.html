@@ -11,7 +11,9 @@
          (dblclick)="editSchedule(date)">
       <span>{{ date.day }}</span>
       <div *ngIf="date.events.length" class="events">
-        <div *ngFor="let event of date.events" class="event">{{ event }}</div>
+        <div *ngFor="let event of date.events" class="event">
+          <strong>{{ event.time }}</strong>: {{ event.title }}
+        </div>
       </div>
     </div>
   </div>

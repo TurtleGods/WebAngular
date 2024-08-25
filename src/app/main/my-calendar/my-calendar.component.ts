@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay } from 'date-fns';
-import { CalendarDate } from './interface/calendar-date.model';
+import { CalendarDate, CalendarEvent } from './interface/calendar-date.model';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-my-calendar',
@@ -28,7 +28,7 @@ export class MyCalendarComponent implements OnInit{
       return {
         day: date.getDate(),
         isToday: isSameDay(date, new Date()),
-        events: [] // You can populate events based on your logic
+        events: [] as CalendarEvent[]
       };
     });
   }
@@ -44,9 +44,16 @@ export class MyCalendarComponent implements OnInit{
   }
 
   editSchedule(date: CalendarDate) {
-    const event = prompt('Enter an event for this date:');
-    if (event) {
-      date.events.push(event);
+    const eventTitle = prompt('Enter the event title:');
+    if (eventTitle) {
+      const eventTime = prompt('Enter the event time (e.g., 10:00 AM):');
+      if (eventTime) {
+        const newEvent: CalendarEvent = {
+          title: eventTitle,
+          time: eventTime
+        };
+        date.events.push(newEvent);
+      }
     }
   }
 }
