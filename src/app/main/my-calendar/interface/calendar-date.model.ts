@@ -1,10 +1,16 @@
 export interface CalendarDate {
-  day: number;         // The day of the month (e.g., 1, 2, 3, ..., 31)
-  isToday: boolean;    // A boolean indicating whether this date is the current day
-  events: CalendarEvent[];    // An array of event descriptions associated with this date
+  day: number;
+  isToday: boolean;
+  hours?: HourlySlot[];  // Optional, used for day and week views
+  events?: CalendarEvent[];  // Optional, used for month view
 }
 
 export interface CalendarEvent {
   title: string;
   time: string;  // e.g., '10:00 AM'
+}
+
+export interface HourlySlot {
+  time: string;  // Hour of the day (e.g., '10:00')
+  events: CalendarEvent[];
 }

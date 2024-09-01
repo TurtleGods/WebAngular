@@ -1,20 +1,49 @@
 <div class="calendar-container">
-  <div class="calendar-header">
-    <button (click)="previousMonth()">&#8249;</button>
-    <span>{{ monthYear }}</span>
-    <button (click)="nextMonth()">&#8250;</button>
+  <div class="view-buttons">
+    <button (click)="setView('day')">Day</button>
+    <button (click)="setView('week')">Week</button>
+    <button (click)="setView('month')">Month</button>
   </div>
-  <div class="calendar-grid">
+
+  <div class="calendar-header">
+    <button (click)="previous()">&#8249;</button>
+    <span>{{ monthYear }}</span>
+    <button (click)="next()">&#8250;</button>
+  </div>
+
+  <div *ngIf="viewMode === 'month'" class="calendar-grid">
     <div class="calendar-day" *ngFor="let day of daysOfWeek">{{ day }}</div>
-    <div class="calendar-date" *ngFor="let date of calendarDates"
-         [class.today]="date.isToday"
-         (dblclick)="editSchedule(date)">
+    <div class="calendar-date" *ngFor="let date of calendarDates" 
+         [class.today]="date.isToday" 
+         (dblclick)="editSchedule(date, '')">
       <span>{{ date.day }}</span>
-      <div *ngIf="date.events.length" class="events">
+      <div *ngIf="date.events?.length" class="events">
         <div *ngFor="let event of date.events" class="event">
           <strong>{{ event.time }}</strong>: {{ event.title }}
         </div>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="viewMode === 'week'" class="calendar-grid">
+    <div class="calendar-day" *ngFor="let day of daysOfWeek">{{ day }}</div>
+    <div class="calendar-date" *ngFor="let date of calendarDates" 
+         [class.today]="date.isToday">
+      <span>{{ date.day }}</span>
+      <div *ngFor="let hour of date.hours">
+        <div class="hour-slot" (dblclick)="editSchedule(date, hour.time)">
+          <strong>{{ hour.time }}</strong>
+          <div *ngIf="hour.events.length" class="events">
+            <div *ngFor="let event of hour.events" class="event">
+              {{ event.title }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="viewMode === 'day'" class="day-view">
+    <!-- Day view implementation here -->
   </div>
 </div>
