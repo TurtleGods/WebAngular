@@ -1,5 +1,11 @@
-<div class="top-bar">
-    <!-- Top bar content, like logo or navigation -->
-    My Top Bar
+<div class="topbar">
+  <div class="title-dropdown">
+    <button class="title-button" (click)="toggleDropdown()">
+      {{ selectedTitle }} <span>&#9662;</span> <!-- Down arrow for dropdown -->
+    </button>
+    <div *ngIf="dropdownOpen" class="dropdown-content">
+      <div (click)="selectTitle('User')">User</div>
+      <div (click)="selectTitle('Coach')">Coach</div>
+    </div>
   </div>
-  
+</div>
