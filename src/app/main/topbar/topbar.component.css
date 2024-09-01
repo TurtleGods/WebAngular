@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -20,6 +21,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-family: 'Freckle Face', cursive;
 
   &:hover {
     text-decoration: underline;
@@ -56,13 +58,65 @@
   display: flex;
   align-items: center;
 
-  .icon {
-    font-size: 1.5em;
+  button {
+    position: relative;
     margin-left: 20px;
+  }
+
+  .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 0.75em;
+  }
+}
+
+.notifications-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  color: black;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
     cursor: pointer;
 
     &:hover {
-      color: #ffdd57;
+      background-color: #f0f0f0;
     }
   }
 }

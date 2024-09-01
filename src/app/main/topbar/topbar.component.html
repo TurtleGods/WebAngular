@@ -2,22 +2,44 @@
   <!-- Left Section: Selectable Title -->
   <div class="left-section">
     <button class="title-button" (click)="toggleDropdown()">
-      {{ selectedTitle }} <span>&#9662;</span>
+      HappyGym <span>&#9662;</span>
     </button>
     <div *ngIf="dropdownOpen" class="dropdown-content">
       <div (click)="selectTitle('User')">User</div>
       <div (click)="selectTitle('Coach')">Coach</div>
     </div>
-    <span class="role">{{ selectedTitle }}</span>
+    <span class="role"  style="font-family: Freckle Face;">{{ User }}</span>
   </div>
 
   <!-- Right Section: Notification and Profile Icons -->
   <div class="right-section">
-    <mat-icon matBadge="15">home</mat-icon>
-    <!-- Include text description of the icon's meaning for screen-readers -->
-    <span class="cdk-visually-hidden">
-    </span>
+    <!-- Notification Icon with Badge -->
+    <button mat-icon-button (click)="toggleNotifications()">
+      <mat-icon>notifications</mat-icon>
+      <span class="badge" *ngIf="unreadNotifications > 0">{{ unreadNotifications }}</span>
+    </button>
+
+    <!-- User Profile Icon -->
+    <button mat-icon-button (click)="toggleProfileSidebar()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
   </div>
 </div>
 
+<!-- Notifications Dropdown -->
+<div *ngIf="notificationsOpen" class="notifications-dropdown">
+  <div *ngFor="let notification of notifications">
+    {{ notification }}
+  </div>
+</div>
+
+<!-- User Profile Sidebar -->
+<div *ngIf="profileSidebarOpen" class="profile-sidebar">
+  <div class="sidebar-title">Profile</div>
+  <ul>
+    <li>View Profile</li>
+    <li>Settings</li>
+    <li>Logout</li>
+  </ul>
+</div>
 
