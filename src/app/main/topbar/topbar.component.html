@@ -1,11 +1,23 @@
 <div class="topbar">
-  <div class="title-dropdown">
+  <!-- Left Section: Selectable Title -->
+  <div class="left-section">
     <button class="title-button" (click)="toggleDropdown()">
-      {{ selectedTitle }} <span>&#9662;</span> <!-- Down arrow for dropdown -->
+      {{ selectedTitle }} <span>&#9662;</span>
     </button>
     <div *ngIf="dropdownOpen" class="dropdown-content">
       <div (click)="selectTitle('User')">User</div>
       <div (click)="selectTitle('Coach')">Coach</div>
     </div>
+    <span class="role">{{ selectedTitle }}</span>
+  </div>
+
+  <!-- Right Section: Notification and Profile Icons -->
+  <div class="right-section">
+    <mat-icon matBadge="15">home</mat-icon>
+    <!-- Include text description of the icon's meaning for screen-readers -->
+    <span class="cdk-visually-hidden">
+    </span>
   </div>
 </div>
+
+
