@@ -1,0 +1,39 @@
+.home-container {
+    padding: 20px;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center; /* Center the input within its container */
+  }
+  
+  .search-input-container {
+    position: relative;
+    width: 100%; /* Ensure the container takes full width */
+    max-width: 600px; /* Optional: Set a maximum width */
+  }
+  
+  .search-input {
+    width: 100%; /* Make the input field take full width of its container */
+    padding: 10px;
+    padding-right: 40px; /* Space for the icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+  }
+  
+  .search-button {
+    position: absolute;
+    right: 10px; /* Position icon within the input field */
+    top: 50%; /* Vertically center the icon */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  .search-button mat-icon {
+    font-size: 24px;
+  }
+  

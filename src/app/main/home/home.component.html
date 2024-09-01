@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div class="home-container">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <div class="search-input-container">
+      <input
+        type="text"
+        placeholder="輸入關鍵字"
+        [(ngModel)]="searchQuery"
+        class="search-input"
+      />
+      <button (click)="search()" class="search-button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Other content of the Home component -->
+</div>
