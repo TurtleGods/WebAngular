@@ -15,4 +15,28 @@
   </div>
 
   <!-- Other content of the Home component -->
+  <div class="carousel-header">
+        <h2>熱門教練推薦</h2>
+        <button class="add-coach-button">+</button>
+  </div>
+  <div class="carousel-container">
+    <button class="arrow left-arrow" (click)="prev()">&#8249;</button>
+
+    <div class="carousel">
+      <div *ngFor="let coach of visibleCoaches" class="coach-card">
+        <img [src]="coach.photo" alt="{{ coach.name }}" class="coach-photo" />
+        <div class="coach-info">
+          <h3>{{ coach.name }}</h3>
+          <p>{{ coach.evaluation }}</p>
+          <p><strong>Expertise:</strong> {{ coach.expertise }}</p>
+        </div>
+      </div>
+    </div>
+    <button class="arrow right-arrow" (click)="next()">&#8250;</button>
+  </div>
+
+  <div class="carousel-header">
+    <h2>熱門影片推薦</h2>
+    <button class="add-coach-button">+</button>
+</div>
 </div>
