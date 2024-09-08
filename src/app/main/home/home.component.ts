@@ -57,10 +57,10 @@ export class HomeComponent {
   }
 
   videos = [
-    { url: 'https://youtu.be/JE8IU9qca0Q?si=j8UPK2-UFssR19sf', title: 'Video 1', description: 'Description of Video 1' },
-    { url: 'https://youtu.be/ywjFPoU0OVQ?si=wOKIeDf7OSRXEAEL', title: 'Video 2', description: 'Description of Video 2' },
-    { url: 'https://www.youtube.com/embed/video3', title: 'Video 3', description: 'Description of Video 3' },
-    { url: 'https://www.youtube.com/embed/video4', title: 'Video 4', description: 'Description of Video 4' },
+    { url: 'https://www.youtube.com/embed/JE8IU9qca0Q?si=zCknxlXfTamoRtbN', title: 'Video 1', description: 'Description of Video 1' },
+    { url: 'https://www.youtube.com/embed/ywjFPoU0OVQ?si=p00wELfvHcPAEp62', title: 'Video 2', description: 'Description of Video 2' },
+    { url: 'https://www.youtube.com/embed/ywjFPoU0OVQ?si=p00wELfvHcPAEp62', title: 'Video 3', description: 'Description of Video 3' },
+    { url: 'https://www.youtube.com/embed/ywjFPoU0OVQ?si=p00wELfvHcPAEp62', title: 'Video 4', description: 'Description of Video 4' },
     // Add more video objects as needed
   ];
 
