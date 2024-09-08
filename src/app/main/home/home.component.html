@@ -16,8 +16,8 @@
 
   <!-- Other content of the Home component -->
   <div class="carousel-header">
-        <h2>熱門教練推薦</h2>
-        <button class="add-coach-button">+</button>
+    <h2>熱門教練推薦</h2>
+    <button class="add-coach-button">+</button>
   </div>
   <div class="carousel-container">
     <button class="arrow left-arrow" (click)="prev()">&#8249;</button>
@@ -35,8 +35,28 @@
     <button class="arrow right-arrow" (click)="next()">&#8250;</button>
   </div>
 
+  <!-- 熱門影片推薦 -->
   <div class="carousel-header">
     <h2>熱門影片推薦</h2>
     <button class="add-coach-button">+</button>
+  </div>
+  <div class="video-section">
+    <div class="video-container">
+      <div class="video-card" *ngFor="let video of visibleVideos">
+        <iframe
+          width="100%"
+          height="100%"
+          [src]="video.url | safeUrl"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <div class="video-info">
+          <h3>{{ video.title }}</h3>
+          <p>{{ video.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+

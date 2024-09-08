@@ -8,6 +8,7 @@
     flex: 1;
     overflow: hidden;
     /* Add styles for your main content */
+    padding-bottom: 50px;
   }
 
   .footer {

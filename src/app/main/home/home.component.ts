@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { SafeUrlPipe } from '../../pipe/safe-url.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatIconModule,FormsModule,CommonModule],
+  imports: [MatIconModule,FormsModule,CommonModule,SafeUrlPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -31,6 +32,7 @@ export class HomeComponent {
 
   constructor() {
     this.updateVisibleCoaches();
+    this.updateVisibleVideos();
   }
 
   updateVisibleCoaches() {
@@ -52,5 +54,19 @@ export class HomeComponent {
       this.currentIndex -= numVisible;
       this.updateVisibleCoaches();
     }
+  }
+
+  videos = [
+    { url: 'https://youtu.be/JE8IU9qca0Q?si=j8UPK2-UFssR19sf', title: 'Video 1', description: 'Description of Video 1' },
+    { url: 'https://youtu.be/ywjFPoU0OVQ?si=wOKIeDf7OSRXEAEL', title: 'Video 2', description: 'Description of Video 2' },
+    { url: 'https://www.youtube.com/embed/video3', title: 'Video 3', description: 'Description of Video 3' },
+    { url: 'https://www.youtube.com/embed/video4', title: 'Video 4', description: 'Description of Video 4' },
+    // Add more video objects as needed
+  ];
+
+  visibleVideos: any;
+  itemsPerPage = window.innerWidth <= 768 ? 2 : 3;
+  updateVisibleVideos() {
+    this.visibleVideos = this.videos.slice(this.currentIndex, this.currentIndex + this.itemsPerPage);
   }
 }
