@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SafeUrlPipe } from '../../pipe/safe-url.pipe';
@@ -27,33 +27,38 @@ export class HomeComponent {
     // Add more coaches as needed
   ];
 
+  visibleVideos: any;
   visibleCoaches: { name: string; expertise: string; evaluation: string; photo: string; }[] | undefined;
-  currentIndex = 0;
+  coachIndex = 0;
+  groupIndex = 0;
+  videoIndex=0;
 
   constructor() {
-    this.updateVisibleCoaches();
     this.updateVisibleVideos();
+    this.updateCoaches();
   }
 
-  updateVisibleCoaches() {
-    const numVisible = window.innerWidth < 768 ? 2 : 3; // Show 2 cards on mobile, 3 on desktop
-    this.visibleCoaches = this.coaches.slice(this.currentIndex, this.currentIndex + numVisible);
-  }
 
-  next() {
+
+  nextCoaches() {
     const numVisible = window.innerWidth < 768 ? 2 : 3;
-    if (this.currentIndex + numVisible < this.coaches.length) {
-      this.currentIndex += numVisible;
-      this.updateVisibleCoaches();
+    if (this.coachIndex + numVisible < this.coaches.length) {
+      this.coachIndex += numVisible;
+      this.updateCoaches();
     }
   }
 
-  prev() {
+  prevCoaches() {
     const numVisible = window.innerWidth < 768 ? 2 : 3;
-    if (this.currentIndex - numVisible >= 0) {
-      this.currentIndex -= numVisible;
-      this.updateVisibleCoaches();
+    if (this.coachIndex - numVisible >= 0) {
+      this.coachIndex -= numVisible;
+      this.updateCoaches();
     }
+  }
+
+  updateCoaches(){
+    this.visibleCoaches = this.coaches.slice(this.coachIndex,this.coachIndex+this.itemsPerPage);
+    console.log(this.visibleVideos);
   }
 
   videos = [
@@ -63,10 +68,22 @@ export class HomeComponent {
     { url: 'https://www.youtube.com/embed/ywjFPoU0OVQ?si=p00wELfvHcPAEp62', title: 'Video 4', description: 'Description of Video 4' },
     // Add more video objects as needed
   ];
-
-  visibleVideos: any;
   itemsPerPage = window.innerWidth <= 768 ? 2 : 3;
   updateVisibleVideos() {
-    this.visibleVideos = this.videos.slice(this.currentIndex, this.currentIndex + this.itemsPerPage);
+    this.visibleVideos = this.videos.slice(this.videoIndex, this.videoIndex + this.itemsPerPage);
+  }
+  nextVideo(){
+    const numVisible = window.innerWidth < 768 ? 2 : 3;
+    if (this.videoIndex + numVisible < this.videos.length) {
+      this.videoIndex += numVisible;
+      this.updateVisibleVideos();
+    }
+  }
+  preVideo(){
+    const numVisible = window.innerWidth < 768 ? 2 : 3;
+    if (this.videoIndex - numVisible >= 0) {
+      this.videoIndex -= numVisible;
+      this.updateVisibleVideos();
+    }
   }
 }

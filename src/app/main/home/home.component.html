@@ -13,17 +13,18 @@
       </button>
     </div>
   </div>
+
+  <!-- 熱門教練推薦 -->
   <div>
-    <!-- Other content of the Home component -->
     <div class="carousel-header">
       <h2>熱門教練推薦</h2>
       <button class="add-coach-button">+</button>
     </div>
     <div class="carousel-container">
-      <button class="arrow left-arrow" (click)="prev()">&#8249;</button>
+      <button class="arrow left-arrow" (click)="prevCoaches()">&#8249;</button>
 
       <div class="carousel">
-        <div *ngFor="let coach of visibleCoaches" class="coach-card">
+        <div *ngFor="let coach of visibleCoaches" class="card">
           <img [src]="coach.photo" alt="{{ coach.name }}" class="coach-photo" />
           <div class="coach-info">
             <h3>{{ coach.name }}</h3>
@@ -32,7 +33,30 @@
           </div>
         </div>
       </div>
-      <button class="arrow right-arrow" (click)="next()">&#8250;</button>
+      <button class="arrow right-arrow" (click)="nextCoaches()">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- 團體課程推薦 -->
+  <div>
+    <div class="carousel-header">
+      <h2>團體課程推薦</h2>
+      <button class="add-coach-button">+</button>
+    </div>
+    <div class="carousel-container">
+      <button class="arrow left-arrow" (click)="prevCoaches()">&#8249;</button>
+
+      <div class="carousel">
+        <div *ngFor="let coach of visibleCoaches" class="card">
+          <img [src]="coach.photo" alt="{{ coach.name }}" class="coach-photo" />
+          <div class="coach-info">
+            <h3>{{ coach.name }}</h3>
+            <p>{{ coach.evaluation }}</p>
+            <p><strong>Expertise:</strong> {{ coach.expertise }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="arrow right-arrow" (click)="nextCoaches()">&#8250;</button>
     </div>
   </div>
 
@@ -42,25 +66,29 @@
       <h2>熱門影片推薦</h2>
       <button class="add-coach-button">+</button>
     </div>
-    <div class="video-container">
-      <div class="video-card" *ngFor="let video of visibleVideos">
-        <div class="video-wrapper">
-          <iframe
-            width="100%"
-            height="100%"
-            [src]="video.url | safeUrl"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="video-info">
-          <h3>{{ video.title }}</h3>
-          <p>{{ video.description }}</p>
+    <div class="carousel-container">
+      <div class="carousel">
+        <button class="arrow left-arrow" (click)="preVideo()">&#8249;</button>
+        <div class="card" *ngFor="let video of visibleVideos">
+          <div class="video-wrapper">
+            <iframe
+              width="100%"
+              height="100%"
+              [src]="video.url | safeUrl"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-info">
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.description }}</p>
+          </div>
         </div>
       </div>
+      <button class="arrow right-arrow" (click)="nextVideo()">&#8250;</button>
     </div>
   </div>
 </div>
